@@ -22,3 +22,19 @@ class TestUser(unittest.TestCase):
         self.assertEqual(self.new_user.Username,"Juliette")
         self.assertEqual(self.new_user.Password,"k@yly123")
 ####################################################################FIRST STEP
+    def test_save_user(self):
+        '''
+        test_save_user test case to test if the user object is saved into
+         the user list
+        '''
+        self.new_user.save_user() # saving the new user
+        self.assertEqual(len(UserAcc.user_list),1)
+    def tearDown(self):
+            '''
+            tearDown method that does clean up after each test case has run.
+            '''
+            UserAcc.user_list = []
+####################################################################SECOND STEP
+
+if __name__ == '__main__':
+    unittest.main()

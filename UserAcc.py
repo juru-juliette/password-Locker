@@ -1,6 +1,6 @@
 class UserAcc:
     """
-    Class that generates new instances of contacts.
+    Class that generates new instances of user.
     """
 
     user_list = [] # Empty user list
@@ -11,3 +11,10 @@ class UserAcc:
 
         self.Username = Username
         self.Password = Password
+    def save_user(self):
+
+        '''
+        save_user method saves users objects into user_list
+        '''
+
+        UserAcc.user_list.append(self)
