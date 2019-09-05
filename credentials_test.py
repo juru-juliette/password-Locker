@@ -38,7 +38,9 @@ class TestCredential(unittest.TestCase):
         test_save_multiple_credential to check if we can save multiple credential objects to our credential_list
         '''    
         self.new_credential.save_credential()
-        self.assertEqual(len(Credentials.credential_list),1)
+        test_credential = Credentials("tweeter","@tweetiii")
+        test_credential.save_credential()
+        self.assertEqual(len(Credentials.credential_list),2)
 
 if __name__=='__main__':
     unittest.main()        
