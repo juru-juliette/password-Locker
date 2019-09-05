@@ -5,12 +5,13 @@ class UserAcc:
 
     user_list = [] # Empty user list
 
-    def __init__(self,Username,Password):
+    def __init__(self,Username,Password,confirm_pswd):
 
       # docstring removed for simplicity
 
         self.Username = Username
         self.Password = Password
+        self.confirm_pswd = confirm_pswd
     def save_user(self):
 
         '''

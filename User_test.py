@@ -13,7 +13,7 @@ class TestUser(unittest.TestCase):
         '''
         Set up method to run before each test cases.
         '''
-        self.new_user = UserAcc("Juliette","k@yly123") # create user object
+        self.new_user = UserAcc("Juliette","k@yly123","k@yly123") # create user object
     def test_init(self):
         '''
         test_init test case to test if the object is initialized properly
@@ -21,6 +21,7 @@ class TestUser(unittest.TestCase):
 
         self.assertEqual(self.new_user.Username,"Juliette")
         self.assertEqual(self.new_user.Password,"k@yly123")
+        self.assertEqual(self.new_user.confirm_pswd,"k@yly123")
 ####################################################################FIRST STEP
     def test_save_user(self):
         '''
