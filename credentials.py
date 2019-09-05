@@ -28,3 +28,17 @@ class Credentials:
         '''
 
         Credentials.credential_list.remove(self)
+    @classmethod
+    def find_by_name(cls,name):
+        '''
+         Method that takes in a number and returns a contact that matches that number.
+
+        Args:
+            number:  password to search for
+        Returns :
+            Credential of account that matches the number.
+        '''    
+
+        for credentials in cls.credential_list:
+            if credentials.account_name == name:
+                return credentials
