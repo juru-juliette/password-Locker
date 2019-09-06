@@ -20,7 +20,7 @@ class TestCredential(unittest.TestCase):
         '''
 
         self.assertEqual(self.new_credential.account_name,"tweeter")
-         self.assertEqual(self.new_credential.userName,"juru-juliette")
+        self.assertEqual(self.new_credential.userName,"juru-juliette")
         self.assertEqual(self.new_credential.password,"@tweetiii")
     def test_save_credential(self):
         '''
@@ -63,7 +63,7 @@ class TestCredential(unittest.TestCase):
         found_credential=Credentials.find_by_name("tweeter")
 
         self.assertEqual(found_credential.password,test_credential.password)
- 
+
 
 if __name__=='__main__':
     unittest.main()        
