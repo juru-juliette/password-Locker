@@ -62,11 +62,11 @@ def main():
     print(f"Hello {username}  {password}. To continue further you have to create a password and confirm it!")
     print('\n')
     print("Create Password")
-    print("-"*10)
+    print("-"*20)
     cr_pw = input()
 
     print("Confirm Password")
-    print("-"*10)
+    print("-"*20)
     conf_pw = input()
     if cr_pw == conf_pw:
         print(f"account for {username}  {password}  successfully created ")
