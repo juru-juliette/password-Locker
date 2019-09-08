@@ -101,7 +101,19 @@ def main():
     elif short_code == 'ex':
 
         print("Have a nice day! Good Byee....")
-        sys.exit()  
+        sys.exit() 
+    while True :
+        print("Use these short codes:cp - create a new password"," dp - display created password ", " fp - find a password", "delp - to delete password", "gp - generate password"," ex - exit app")
+        short_code = input().lower()
+        if short_code == 'cp':
+            print("New Password")
+            print('-'*10)
+            print("Account name")
+            print('-'*10)
+            account_name = input()
+            print("password")
+            print('-'*10)
+            password = input() 
 
 
 
