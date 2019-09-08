@@ -92,6 +92,8 @@ def main():
                 print('\n')
             else:
                 print(f"password:{passw} or username{login_name} incorrect. please confirm your password correctly.")
+            elif short_code == 'ex':
+                print("Have a nice day! Good Byee....")
 
 
 if __name__ == '__main__':
