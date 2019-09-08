@@ -2,6 +2,7 @@
 import pyperclip
 from UserAcc import UserAcc 
 from credentials import Credentials
+import sys
 def create_account(username,password):
     '''
     Function to create a new Account
@@ -73,28 +74,38 @@ def main():
         print('\n')
     else:
         print(f"password {cr_pw} or {conf_pw} Incorrect.Please confirm the password correctly.")
-        print("Use these short codes: lgn - login ","cp -create a new password","dp - display password","fp -find password","dep -delete password"," ex - exit the app")
-        login_user(create_user(username,password,cr_pw,conf_pw))
-        short_code=input().lower()
-        if short_code = 'lgn':
-            print("now let proceed to login to our account")
-            print('\n')
-            print('*'*25)
-            print("enter your username(the name must be the same us the one you entered previously):")
-            print('*'*25)
-            login_name=input()
-            print('\n')
-            print("enter your password")
-            print('*'*25)
-            passw=input()
-            if conf_pw == passw and username== login_name:
-                print("you are successfully logged in")
+        while True:
+            print("Use these short codes: lgn - login ","cp -create a new password","dp - display password","fp -find password","dep -delete password"," ex - exit the app")
+            login_user(create_user(username,password,cr_pw,conf_pw))
+            short_code=input().lower()
+            if short_code == 'lgn':
+                print("now let proceed to login to our account")
                 print('\n')
-            else:
-                print(f"password:{passw} or username{login_name} incorrect. please confirm your password correctly.")
+                print('*'*25)
+                print("enter your username(the name must be the same us the one you entered previously):")
+                print('*'*25)
+                login_name=input()
+                print('\n')
+                print("enter your password")
+                print('*'*25)
+                passw=input()
+                if conf_pw == passw and username == login_name:
+                    print("you are successfully logged in")
+                    print('\n')
+                else:
+                    print(f"password:{passw} or username{login_name} incorrect. please confirm your password correctly.") 
             elif short_code == 'ex':
                 print("Have a nice day! Good Byee....")
+                sys.exit()  
 
+
+
+        
+       
+        
+       
+            
+            
 
 if __name__ == '__main__':
     main()
