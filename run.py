@@ -3,11 +3,11 @@
 from UserAcc import UserAcc 
 from credentials import Credentials
 import sys
-def create_account(username,password,cr_pw,confirm_pswd):
+def create_account(username,password,confirm_pswd):
     '''
     Function to create a new Account
     '''
-    new_account = UserAcc(username,password,cr_pw,confirm_pswd)
+    new_account = UserAcc(username,password,confirm_pswd)
     return new_account
 def create_credential(acc_name,userName,pswd):
     '''
@@ -69,8 +69,8 @@ def main():
     print("Confirm Password")
     print("-"*20)
     confirm_pswd = input()
-    login_users(create_account(username,password,cr_pw,confirm_pswd))
-    if cr_pw == conf_pw:
+    login_users(create_account(username,password,confirm_pswd))
+    if cr_pw == confirm_pswd:
         print(f"account for {username}  {password}  successfully created ")
         print('\n')
     else:
@@ -92,7 +92,7 @@ def main():
         print("enter your password")
         print('*'*25)
         passw=input()
-        if conf_pw == passw and username == login_name:
+        if confirm_pswd == passw and username == login_name:
 
             print("you are successfully logged in")
             print('\n')

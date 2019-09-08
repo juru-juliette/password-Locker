@@ -19,8 +19,8 @@ class UserAcc:
         '''
 
         UserAcc.user_list.append(self)
-    # def login_user(self)
-    #     '''
-    #     login_user method save users into users list object
-    #     '''
-    #     UserAcc.user_list.append(self)
+    def login_user(self):
+        '''
+        login_user method save users into users list object
+        '''
+        UserAcc.user_list.append(self)
