@@ -1,13 +1,13 @@
 #!/usr/bin/env python3.6
-import pyperclip
+# import pyperclip
 from UserAcc import UserAcc 
 from credentials import Credentials
 import sys
-def create_account(username,password):
+def create_account(username,password,cr_pw,confirm_pswd):
     '''
     Function to create a new Account
     '''
-    new_account = UserAcc(username,password)
+    new_account = UserAcc(username,password,cr_pw,confirm_pswd)
     return new_account
 def create_credential(acc_name,userName,pswd):
     '''
@@ -68,35 +68,40 @@ def main():
 
     print("Confirm Password")
     print("-"*20)
-    conf_pw = input()
+    confirm_pswd = input()
+    login_users(create_account(username,password,cr_pw,confirm_pswd))
     if cr_pw == conf_pw:
         print(f"account for {username}  {password}  successfully created ")
         print('\n')
     else:
         print(f"password {cr_pw} or {conf_pw} Incorrect.Please confirm the password correctly.")
-        while True:
-            print("Use these short codes: lgn - login ","cp -create a new password","dp - display password","fp -find password","dep -delete password"," ex - exit the app")
-            login_user(create_user(username,password,cr_pw,conf_pw))
-            short_code=input().lower()
-            if short_code == 'lgn':
-                print("now let proceed to login to our account")
-                print('\n')
-                print('*'*25)
-                print("enter your username(the name must be the same us the one you entered previously):")
-                print('*'*25)
-                login_name=input()
-                print('\n')
-                print("enter your password")
-                print('*'*25)
-                passw=input()
-                if conf_pw == passw and username == login_name:
-                    print("you are successfully logged in")
-                    print('\n')
-                else:
-                    print(f"password:{passw} or username{login_name} incorrect. please confirm your password correctly.") 
-            elif short_code == 'ex':
-                print("Have a nice day! Good Byee....")
-                sys.exit()  
+        sys.exit()
+       
+    print("Use these short codes: lgn - login "," ex - exit the app")
+            
+    short_code=input().lower()
+    if short_code == 'lgn':
+
+        print("now let proceed to login to our account")
+        print('\n')
+        print('*'*25)
+        print("enter your username(the name must be the same us the one you entered previously):")
+        print('*'*25)
+        login_name=input()
+        print('\n')
+        print("enter your password")
+        print('*'*25)
+        passw=input()
+        if conf_pw == passw and username == login_name:
+
+            print("you are successfully logged in")
+            print('\n')
+        else:
+            print(f"password:{passw} or username{login_name} incorrect. please confirm your password correctly.") 
+    elif short_code == 'ex':
+
+        print("Have a nice day! Good Byee....")
+        sys.exit()  
 
 
 
