@@ -9,18 +9,19 @@ def create_account(username,password,confirm_pswd):
     '''
     new_account = UserAcc(username,password,confirm_pswd)
     return new_account
-def create_credential(acc_name,userName,pswd):
-    '''
-    function to create a new credential
-    '''
-    new_credential=Credentials(acc_name,userName,pswd)
-    return new_credential
-#########################################you can logg in
 def login_users(user):
     '''
     function to login user 
     '''
     user.login_user()
+def create_credential(account_name,userName,password):
+    '''
+    function to create a new credential
+    '''
+    new_credential=Credentials(account_name,userName,password)
+    return new_credential
+
+
 def save_credentials(credential):
     '''
     function to login user 
@@ -96,24 +97,37 @@ def main():
 
             print("you are successfully logged in")
             print('\n')
+#########################################you can logg in
         else:
             print(f"password:{passw} or username{login_name} incorrect. please confirm your password correctly.") 
     elif short_code == 'ex':
 
         print("Have a nice day! Good Byee....")
         sys.exit() 
+#############################credentials###############################
     while True :
         print("Use these short codes:cp - create a new password"," dp - display created password ", " fp - find a password", "delp - to delete password", "gp - generate password"," ex - exit app")
         short_code = input().lower()
         if short_code == 'cp':
             print("New Password")
-            print('-'*10)
+            print('*'*10)
             print("Account name")
             print('-'*10)
             account_name = input()
+            print("username")
+            print('-'*10)
+            userName = input()
             print("password")
             print('-'*10)
-            password = input() 
+            password = input()
+            save_credentials (create_credential(account_name,userName,password)) 
+            print('\n')
+            print(f"new password for this account {account_name} \n username {userName} \n password {password} is created") 
+            print('\n')
+        elif short_code == 'ex':
+            print("Have a nice day! Good Byee....")
+            sys.exit() 
+
 
 
 
