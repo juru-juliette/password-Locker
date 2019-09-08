@@ -28,7 +28,7 @@ def save_credentials(credential):
     '''
     function to login user 
     '''
-    credentials.save_credential()
+    Credentials.save_credential()
 def display_credentials():
     '''function that returns all saved credentials
     '''
@@ -140,6 +140,29 @@ def main():
                 print('\n')
                 print("you dont have any password saved yet")
                 print('\n')
+        elif short_code == 'fp':
+            print("Enter the name of the account you want to search password for:")
+            search_name = input()
+            if check_existing_credentials(search_name):
+                search_name = find_credential(search_name)
+                print(f"account name....{search_name.account_name} password {search_name.password}")
+                print('-'*20)
+                print("account name does not exist")
+        elif short_code == "delp":
+            print("Enter the name of you want to delete")
+            search_name = input()
+            if check_existing_credentials(search_name):
+                Credential = find_credential(search_name)
+                del_credentials(Credential)
+                print(f"{crdential.account_name} deleted")
+                print('\n')
+                print ("credential and password deleted")
+            else:
+                print("Account you want to delete doesn't exist")
+
+
+
+              
 
 
 
