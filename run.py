@@ -3,6 +3,7 @@
 from UserAcc import UserAcc 
 from credentials import Credentials
 import sys
+## user
 def create_account(username,password,confirm_pswd):
     '''
     Function to create a new Account
@@ -14,6 +15,7 @@ def login_users(user):
     function to login user 
     '''
     user.login_user()
+## credential
 def create_credential(account_name,userName,password):
     '''
     function to create a new credential
@@ -26,28 +28,27 @@ def save_credentials(credential):
     '''
     function to login user 
     '''
-    credential.save_credential()
-def del_credentials(credential):
+    credentials.save_credential()
+def display_credentials():
+    '''function that returns all saved credentials
     '''
-    function to delete delete credentials
-    '''
-    credential.delete_credential()
+    return Credentials.display_credentials()
 def find_credential(name):
     '''
     function that finds a credential by name and returns the password
     '''
-    return Credential.find_by_name(name)  
-
-def display_credentials():
-    '''function that returns all saved credentials
-    '''
-    return Credential.display_credentials()
-
+    return Credentials.find_by_name(name)
 def check_existing_credentials(name):
     '''
      Function that check if a credential exists with that account name and return a Boolean
     '''
-    return Credential.credential_exist(name)
+    return Credentials.credential_exist(name)  
+def del_credentials(credential):
+    '''
+    function to delete delete credentials
+    '''
+    credentials.delete_credential()
+
 def main():
     print("Hello Welcome to Password Locker App. '\n'Enter your username and password please?")
    
@@ -127,6 +128,18 @@ def main():
         elif short_code == 'ex':
             print("Have a nice day! Good Byee....")
             sys.exit() 
+        elif short_code == 'dp':
+            if display_credentials():
+                print("this is a list of all your password")
+                print('\n')
+
+                for credential in display_credentials():
+                    print(f"{credentials.account_name} {credentials.userName} {credentials.password}")
+                    print('\n')
+            else: 
+                print('\n')
+                print("you dont have any password saved yet")
+                print('\n')
 
 
 
