@@ -24,7 +24,7 @@ def create_credential(account_name,userName,password):
     return new_credential
 
 
-def save_credentials(credential):
+def save_credential(credential):
     '''
     function to login user 
     '''
@@ -47,7 +47,7 @@ def del_credentials(credential):
     '''
     function to delete delete credentials
     '''
-    credentials.delete_credential()
+    Credentials.delete_credential()
 
 def main():
     print("Hello Welcome to Password Locker App. '\n'Enter your username and password please?")
@@ -84,9 +84,6 @@ def main():
     short_code=input().lower()
     if short_code == 'lgn':
 
-        print("now let proceed to login to our account")
-        print('\n')
-        print('*'*25)
         print("enter your username(the name must be the same us the one you entered previously):")
         print('*'*25)
         login_name=input()
@@ -121,9 +118,9 @@ def main():
             print("password")
             print('-'*10)
             password = input()
-            save_credentials (create_credential(account_name,userName,password)) 
+            save_credential (create_credential(account_name,userName,password)) 
             print('\n')
-            print(f"new password for this account {account_name} \n username {userName} \n password {password} is created") 
+            print(f"new password for this account {account_name} \n username: {userName} \n password :{password} is created") 
             print('\n')
         elif short_code == 'ex':
             print("Have a nice day! Good Byee....")
@@ -134,7 +131,7 @@ def main():
                 print('\n')
 
                 for credential in display_credentials():
-                    print(f"{credentials.account_name} {credentials.userName} {credentials.password}")
+                    print(f"{Credentials.account_name} {Credentials.userName} {Credentials.password}")
                     print('\n')
             else: 
                 print('\n')

@@ -17,17 +17,16 @@ class Credentials:
         self.password = password
 
     credential_list=[]
+    @classmethod 
     def save_credential(self):
-        
         '''
         save_credential method saves credential object into credential_list
         '''
-        Credentials.credential_list.append(self)  
+        Credentials.credential_list.append(self)
     def delete_credential(self):
         '''
         delete_credential method deletes a saved credential from the credential_list
         '''
-
         Credentials.credential_list.remove(self)
     @classmethod
     def find_by_name(cls,name):
