@@ -30,7 +30,8 @@ def save_credential(credential):
     '''
     Credentials.save_credential()
 def display_credentials():
-    '''function that returns all saved credentials
+    '''
+    function that returns all saved credentials
     '''
     return Credentials.display_credentials()
 def find_credential(name):
@@ -62,21 +63,17 @@ def main():
     password = input()
     print('\n')
 
-    print(f"Hello {username}  {password}. To continue further you have to create a password and confirm it!")
+    print(f"Hello {username}  {password}. To continue further you have to confirm your password!")
     print('\n')
-    print("Create Password")
-    print("-"*20)
-    cr_pw = input()
-
     print("Confirm Password")
     print("-"*20)
     confirm_pswd = input()
     login_users(create_account(username,password,confirm_pswd))
-    if cr_pw == confirm_pswd:
+    if password == confirm_pswd:
         print(f"account for {username}  {password}  successfully created ")
         print('\n')
     else:
-        print(f"password {cr_pw} or {conf_pw} Incorrect.Please confirm the password correctly.")
+        print(f"password {conf_pw} Incorrect.Please confirm the password correctly.")
         sys.exit()
        
     print("Use these short codes: lgn - login "," ex - exit the app")
@@ -130,32 +127,33 @@ def main():
                 print("this is a list of all your password")
                 print('\n')
 
-                for credential in display_credentials():
-                    print(f"{Credentials.account_name} {Credentials.userName} {Credentials.password}")
+                for credentials in display_credentials():
+                   
+                    print (f"{credentials.account_name} {credentials.userName} {credentials.password}")
                     print('\n')
             else: 
                 print('\n')
                 print("you dont have any password saved yet")
                 print('\n')
-        elif short_code == 'fp':
-            print("Enter the name of the account you want to search password for:")
-            search_name = input()
-            if check_existing_credentials(search_name):
-                search_name = find_credential(search_name)
-                print(f"account name....{search_name.account_name} password {search_name.password}")
-                print('-'*20)
-                print("account name does not exist")
-        elif short_code == "delp":
-            print("Enter the name of you want to delete")
-            search_name = input()
-            if check_existing_credentials(search_name):
-                Credential = find_credential(search_name)
-                del_credentials(Credential)
-                print(f"{crdential.account_name} deleted")
-                print('\n')
-                print ("credential and password deleted")
-            else:
-                print("Account you want to delete doesn't exist")
+        # elif short_code == 'fp':
+        #     print("Enter the name of the account you want to search password for:")
+        #     search_name = input()
+        #     if check_existing_credentials(search_name):
+        #         search_name = find_credential(search_name)
+        #         print(f"account name....{search_name.account_name} password {search_name.password}")
+        #         print('-'*20)
+        #         print("account name does not exist")
+        # elif short_code == "delp":
+        #     print("Enter the name of you want to delete")
+        #     search_name = input()
+        #     if check_existing_credentials(search_name):
+        #         Credential = find_credential(search_name)
+        #         del_credentials(Credential)
+        #         print(f"{credential.account_name} deleted")
+        #         print('\n')
+        #         print ("credential and password deleted")
+        #     else:
+        #         print("Account you want to delete doesn't exist")
 
 
 
