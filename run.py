@@ -3,6 +3,8 @@
 from UserAcc import UserAcc 
 from credentials import Credentials
 import sys
+import string
+import random
 ## user
 def create_account(username,password,confirm_pswd):
     '''
@@ -49,6 +51,9 @@ def del_credentials(credential):
     function to delete delete credentials
     '''
     Credentials.delete_credential()
+def pw_gen(size = 8, chars=string.ascii_letters + string.digits + string.punctuation):
+	return ''.join(random.choice(chars) for _ in range(size))    
+
 
 def main():
     print("Hello Welcome to Password Locker App. '\n'Enter your username and password please?")
@@ -127,9 +132,9 @@ def main():
                 print("this is a list of all your password")
                 print('\n')
 
-                for credentials in display_credentials():
+                for credential in display_credentials():
                    
-                    print (f"{credentials.account_name} {credentials.userName} {credentials.password}")
+                    print (f"App name:{credential.account_name}\n username:{credential.userName}\n password:{credential.password}")
                     print('\n')
             else: 
                 print('\n')
@@ -143,17 +148,31 @@ def main():
         #         print(f"account name....{search_name.account_name} password {search_name.password}")
         #         print('-'*20)
         #         print("account name does not exist")
-        # elif short_code == "delp":
-        #     print("Enter the name of you want to delete")
-        #     search_name = input()
-        #     if check_existing_credentials(search_name):
-        #         Credential = find_credential(search_name)
-        #         del_credentials(Credential)
-        #         print(f"{credential.account_name} deleted")
-        #         print('\n')
-        #         print ("credential and password deleted")
-        #     else:
-        #         print("Account you want to delete doesn't exist")
+        elif short_code == "delp":
+            print("Enter the name of account you want to delete")
+            search_name = input()
+            if check_existing_credentials(search_name):
+                Credential = find_credential(search_name)
+                del_credentials(Credential)
+                print(f"{credential.account_name} deleted")
+                print('\n')
+                print ("credential and password deleted")
+            else:
+                print("Account you want to delete doesn't exist")
+        elif short_code == 'gp':
+            
+            print("enter account name")
+            account_name=input()
+            print("enter length of the password you wish to generate(enter number)")
+            size=int(input())
+            password=pw_gen(size)
+
+            save_credential(create_credential(account_name,userName,password))
+            print('\n')
+            print(f"new password {password} created")
+            print('\n') 
+
+
 
 
 
